@@ -1,0 +1,21 @@
+CC=gcc
+CFLAGS=-Wall 
+
+all: client_stream server_stream client_dgram server_dgram
+stream: client_stream server_stream
+dgram: client_dgram server_dgram
+
+client_stream: client_stream.c
+	${CC} -o client_stream client_stream.c ${CFLAGS}
+
+server_stream: server_stream.c
+	${CC} -o server_stream server_stream.c ${CFLAGS}
+
+server_dgram: server_dgram.c
+	${CC} -o server_dgram server_dgram.c ${CFLAGS}
+
+client_dgram: client_dgram.c
+	${CC} -o client_dgram client_dgram.c ${CFLAGS}
+
+clean:
+	rm -f server_stream client_stream server_dgram client_dgram
